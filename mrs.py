@@ -22,7 +22,7 @@ def eval(model, al, train, valid, rank):
 
 musicData = sc.textFile('./id_train_triplets.csv', use_unicode=False).map(lambda x: x.split(',')).map(lambda x: (int(x[3]), int(x[4]), int(x[2])))
 
-trainData, validData, testData = musicData.randomSplit([0.4, 0.4, 0.3], 13)
+trainData, validationData, testData = musicData.randomSplit([0.4, 0.4, 0.3], 13)
 trainData.cache()
 validationData.cache()
 testData.cache()
